@@ -33,5 +33,14 @@ public class Game {
             "650 point!";
 
 
+    // Metode der bruger 2 instance af Die klassen, som ruller ruller med terninger via rollDice() metoden fra Die klassen
+    private int diceTurn(Die dice1, Die dice2) {
+
+        dice1.rollDice();
+        dice2.rollDice();
+
+        return Die.getSum(dice1.diceNumber, dice2.diceNumber);
+    }
+
 
 }

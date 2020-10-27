@@ -19,6 +19,11 @@
         </repository>
     </repositories>
 
+    <properties>
+            <maven.compiler.source>1.14</maven.compiler.source>
+            <maven.compiler.target>1.14</maven.compiler.target>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>diplomitdtu</groupId>

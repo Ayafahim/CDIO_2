@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="CDIO_2" target="1.5" />
+      <module name="CDIO_2" target="1.14" />
     </bytecodeTargetLevel>
   </component>
 </project>

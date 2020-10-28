@@ -48,11 +48,15 @@ public class Game {
 
     // Metode der udregner spillerens balance alt efter hvilket felt de er landet ved. Spillerns balance kan ikke komme under 0.
     private void calculateBalance(int fieldPoint, String fieldMsg, int playerBalance, GUI_Player player) {
-        if (player.getBalance() <= 0) {
-            player.setBalance(0);
-        } else {
+        if (!(player.getBalance() < 0)) {
             playerBalance = fieldPoint + playerBalance;
-            player.setBalance(playerBalance);
+            if (playerBalance < 0) {
+                player.setBalance(0);
+            } else {
+                player.setBalance(playerBalance);
+            }
+        } else {
+            player.setBalance(0);
         }
         gui.showMessage(fieldMsg);
     }

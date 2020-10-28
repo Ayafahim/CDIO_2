@@ -3,6 +3,7 @@ import com.company.Game;
 import com.company.Player;
 import gui_fields.GUI_Player;
 import org.junit.Assert;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 
@@ -19,16 +20,14 @@ public class GameTest {
     }
 
     // Begge tests forneden tjekker at vi ikke kan slå over en sum af 12
-    @Test
+    @RepeatedTest(1000)
     void testDiceMax() {
         Die dice1 = new Die(1, 6);
         Die dice2 = new Die(1, 6);
-
-        for (int i = 0; i < 100; i++) {
             int faceValue = Die.diceTurn(dice1, dice2);
             Assert.assertTrue(faceValue <= 12);
             System.out.println(faceValue);
-        }
+
     }
 
     @Test

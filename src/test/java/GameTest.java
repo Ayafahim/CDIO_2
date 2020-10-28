@@ -18,6 +18,7 @@ public class GameTest {
         System.out.println(player1.getBalance());
     }
 
+    // Begge tests forneden tjekker at vi ikke kan slå over en sum af 12
     @Test
     void testDiceMax() {
         Die dice1 = new Die(1, 6);

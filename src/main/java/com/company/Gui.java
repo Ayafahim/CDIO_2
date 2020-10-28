@@ -2,8 +2,8 @@ package com.company;
 
 import gui_fields.*;
 import gui_main.GUI;
-
 import java.awt.*;
+
 
 public class Gui {
 

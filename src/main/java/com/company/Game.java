@@ -37,17 +37,8 @@ public class Game {
             "650 point!";
 
 
-    // Metode der bruger 2 instance af Die klassen, som ruller ruller med terninger via rollDice() metoden fra Die klassen
-    private int diceTurn(Die dice1, Die dice2) {
-
-        dice1.rollDice();
-        dice2.rollDice();
-
-        return Die.getSum(dice1.diceNumber, dice2.diceNumber);
-    }
-
     // Metode der udregner spillerens balance alt efter hvilket felt de er landet ved. Spillerns balance kan ikke komme under 0.
-    private void calculateBalance(int fieldPoint, String fieldMsg, int playerBalance, GUI_Player player) {
+    public void calculateBalance(int fieldPoint, int playerBalance, GUI_Player player) {
         if (!(player.getBalance() < 0)) {
             playerBalance = fieldPoint + playerBalance;
             if (playerBalance < 0) {
@@ -58,7 +49,7 @@ public class Game {
         } else {
             player.setBalance(0);
         }
-        gui.showMessage(fieldMsg);
+
     }
 
     // Metode der tjekker hvilket felt spilleren er landet på alt efter hvad summen af terningerne er og kalder calculateBalance() metoden efter hvert case
@@ -70,53 +61,62 @@ public class Game {
             case 2:
 //                fields[1].setCar(player, true);
 //                fields[0].removeAllCars();
-                calculateBalance(fieldPoints[0], towerMsg, playerBalance, player);
+                calculateBalance(fieldPoints[0], playerBalance, player);
+                gui.showMessage(towerMsg);
                 break;
             // crater
             case 3:
 //                fields[2].setCar(player, true);
 //                fields[1].removeAllCars();
-                calculateBalance(fieldPoints[1], craterMsg, playerBalance, player);
+                calculateBalance(fieldPoints[1], playerBalance, player);
+                gui.showMessage(craterMsg);
                 break;
 
             // palace gates
             case 4:
-                calculateBalance(fieldPoints[2], palaceGatesMsg, playerBalance, player);
+                calculateBalance(fieldPoints[2], playerBalance, player);
+                gui.showMessage(palaceGatesMsg);
                 break;
 
             // cold desert
             case 5:
-                calculateBalance(fieldPoints[3], coldDesertMsg, playerBalance, player);
+                calculateBalance(fieldPoints[3], playerBalance, player);
+                gui.showMessage(coldDesertMsg);
                 break;
 
 
             // walled city
             case 6:
-                calculateBalance(fieldPoints[4], walledCityMsg, playerBalance, player);
+                calculateBalance(fieldPoints[4], playerBalance, player);
+                gui.showMessage(walledCityMsg);
                 break;
 
 
             // monastery
             case 7:
-                calculateBalance(fieldPoints[5], monasteryMsg, playerBalance, player);
+                calculateBalance(fieldPoints[5], playerBalance, player);
+                gui.showMessage(monasteryMsg);
                 break;
 
 
             // black cave
             case 8:
-                calculateBalance(fieldPoints[6], blackCaveMsg, playerBalance, player);
+                calculateBalance(fieldPoints[6], playerBalance, player);
+                gui.showMessage(blackCaveMsg);
                 break;
 
 
             // huts in the mountain
             case 9:
-                calculateBalance(fieldPoints[7], hutsInTheMountainMsg, playerBalance, player);
+                calculateBalance(fieldPoints[7], playerBalance, player);
+                gui.showMessage(hutsInTheMountainMsg);
                 break;
 
 
-            // the were wll
+            // the were wall
             case 10:
-                calculateBalance(fieldPoints[8], theWereWallMsg, playerBalance, player);
+                calculateBalance(fieldPoints[8], playerBalance, player);
+                gui.showMessage(theWereWallMsg);
                 if (turn == 0) {
                     turn = 1;
                 } else {
@@ -127,13 +127,15 @@ public class Game {
 
             // the pitt
             case 11:
-                calculateBalance(fieldPoints[9], thePitMsg, playerBalance, player);
+                calculateBalance(fieldPoints[9], playerBalance, player);
+                gui.showMessage(thePitMsg);
                 break;
 
 
             // gold mine
             case 12:
-                calculateBalance(fieldPoints[10], goldMineMsg, playerBalance, player);
+                calculateBalance(fieldPoints[10], playerBalance, player);
+                gui.showMessage(goldMineMsg);
                 break;
         }
 
@@ -145,7 +147,10 @@ public class Game {
         gui.showMessage(player.spillerNavn + "'s tur");
         String knap = gui.getUserSelection("Slå med terningen", "Slå!");
         if (knap.equals("Slå!")) {
-            int sum = diceTurn(dice1, dice2);
+
+
+            int sum = Die.diceTurn(dice1, dice2);
+
             gui.setDice(dice1.diceNumber, dice2.diceNumber);
 //            int sum = 3;
             System.out.printf("sum is %d. dice1 is %d and dice2 is %d%n", sum, dice1.diceNumber, dice2.diceNumber);

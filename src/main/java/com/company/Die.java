@@ -19,8 +19,17 @@ public class Die {
         diceNumber = random.nextInt((MAX - MIN + 1)) + MIN;
     }
 
+    // Metode der bruger 2 instance af Die klassen, som ruller  med terninger via rollDice() metoden fra Die klassen
+    public static int diceTurn(Die dice1, Die dice2) {
+
+        dice1.rollDice();
+        dice2.rollDice();
+
+        return getSum(dice1.diceNumber, dice2.diceNumber);
+    }
+
     // Metode der returner summen af to terninger
-    public static int getSum(int dice1, int dice2) {
+    private static int getSum(int dice1, int dice2) {
         return dice1 + dice2;
     }
 

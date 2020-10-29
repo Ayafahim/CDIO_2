@@ -2,6 +2,7 @@ package com.company;
 
 import gui_fields.GUI_Player;
 
+import static com.company.Gui.fields;
 import static com.company.Gui.gui;
 
 public class Game {
@@ -59,15 +60,12 @@ public class Game {
         switch (sum) {
             // tower
             case 2:
-//                fields[1].setCar(player, true);
-//                fields[0].removeAllCars();
                 calculateBalance(fieldPoints[0], playerBalance, player);
                 gui.showMessage(towerMsg);
+
                 break;
             // crater
             case 3:
-//                fields[2].setCar(player, true);
-//                fields[1].removeAllCars();
                 calculateBalance(fieldPoints[1], playerBalance, player);
                 gui.showMessage(craterMsg);
                 break;

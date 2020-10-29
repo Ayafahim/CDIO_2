@@ -13,33 +13,31 @@ public class GameTest {
     @Test
     void testCalculateNegativeBalance() {
         Game game = new Game();
-        GUI_Player player1 = new GUI_Player("aya");
+        GUI_Player player1 = new GUI_Player("Test");
         game.calculateBalance(-2000, 1000, player1);
         Assert.assertEquals(0, player1.getBalance());
         System.out.println(player1.getBalance());
     }
 
-    // Begge tests forneden tjekker at vi ikke kan slå over en sum af 12
+    // Test der tjekker at vi ikke kan slå over en sum af 12
     @RepeatedTest(1000)
     void testDiceMax() {
         Die dice1 = new Die(1, 6);
         Die dice2 = new Die(1, 6);
-            int faceValue = Die.diceTurn(dice1, dice2);
-            Assert.assertTrue(faceValue <= 12);
-            System.out.println(faceValue);
+        int faceValue = Die.diceTurn(dice1, dice2);
+        Assert.assertTrue(faceValue <= 12);
+        System.out.println(faceValue);
 
     }
-
-    @Test
-    void testFaceValuePastLimit() {
+    //Test der tjekker at vi ikke kan slå en sum under 2
+    @RepeatedTest(1000)
+    void testDieMin() {
         Die dice1 = new Die(1, 6);
         Die dice2 = new Die(1, 6);
+        int faceValue = Die.diceTurn(dice1, dice2);
+        Assert.assertFalse(faceValue < 2);
+        System.out.println(faceValue);
 
-        for (int i = 0; i < 100; i++) {
-            int faceValue = Die.diceTurn(dice1, dice2);
-            Assert.assertFalse(faceValue > 12);
-            System.out.println(faceValue);
-        }
     }
 
 
